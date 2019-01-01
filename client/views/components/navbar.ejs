@@ -1,0 +1,33 @@
+<head>
+    <style>
+
+    #navbar{
+        width: 300px;
+        font-size: 20px;
+        color: black;
+        
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #setting{
+        color: inherit;
+    }
+
+    #user{
+        color: inherit;
+        text-decoration: none;
+    }
+
+    #date{
+        color: inherit;
+    }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a id="setting" href="/main"><i class="fa fa-igloo"></i></a>
+        <a id="user" href="/userProfile"><%= data.username %></a>
+        <div id="date"><%= new Date().getDate() %></div>
+    </div>
+</body>

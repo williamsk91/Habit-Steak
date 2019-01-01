@@ -1,0 +1,110 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#container{
+    width: 100vw;
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskContainer{
+    width: 300px;
+    min-height: 35px;
+    margin-top: 10px;
+
+    display: grid;
+    grid-template-columns: 25px auto;
+}
+
+.taskInfo{
+    display: grid;
+    grid-template-columns: 40px auto repeat(2, 40px);
+    align-items: center;
+}
+
+.taskInfo p{
+    margin: 0px;
+}
+
+.option{
+    height: 100%;
+}
+
+/* extra task info */
+.extraTaskInfoContainer{
+    grid-column: 2 / 3;
+}
+
+.taskBtn{
+    margin-left: 5px;
+}
+
+.startSign{
+    position: relative;
+    bottom: 4px;
+    right: 5px;
+}
+
+/* Calendar */
+.calendar{
+    margin: 0px 0px 5px 5px;
+}
+
+.card-body{
+    margin-bottom: 0px;
+}
+
+.calendarGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    grid-template-rows: repeat(5, 30px);
+    grid-gap: 1px 1px;
+} 
+
+/* adding task */
+#addTask{
+    height: 20px;
+    line-height: 15px;
+    width: 20px;
+    border: 1px solid grey;
+    border-radius: 500px;
+    text-align: center;
+}
+
+/* logging out button */
+#logoutBtn{
+    height: 20px;
+    line-height: 15px;
+    width: 20px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 500px;
+    text-align: center;
+}
+
+/* confirmation card */
+#confirmationCardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmationCard{
+    width: 300px;
+    margin-bottom: 10px;
+
+}
+
+.confirmationCardBtns{
+    width: 100%;
+}
+
+#confirmationCardPlaceholderCard{
+    width: 300px;
+    height: 35px;
+}

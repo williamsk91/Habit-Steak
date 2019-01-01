@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Habit Steak - Task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="/task.css" />
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script>
+        //creating global variable to be used in task.js
+        var task = <%- JSON.stringify(task) %>;
+    </script>
+    <script src="/task.js"></script>
+</head>
+<body>
+    <div id="taskContainer">
+        <div class="list-group">
+            <!-- title -->
+            <div id="taskTitle" class="list-group-item">
+                <h3><%= task.title %></h3>
+                <a href='/main'><i class='far fa-times-circle'></i></a>
+            </div>
+
+            <!-- Note -->
+            <div class="list-group-item">
+                <div id="noteLabel" class="badge badge-secondary">Task Note</div>
+                <div id="noteText" ><%= task.note %></div>
+            </div>
+
+            <!-- starting date -->
+            <div class="list-group-item">
+                <div class="badge badge-secondary">Starting Date:</div>
+                <div id='startingDateText'><%= task.startDate.year + '/' + (task.startDate.month+1) + '/' + task.startDate.date %></div>
+            </div>
+
+            <!-- history -->
+            <div class="list-group-item history">
+                <!-- carousel -->
+                <div id="calendarCarousel" class="carousel slide" data-wrap="false">
+                    <!-- carousel slides -->
+                    <div id="calendarInnerCarousel" class="carousel-inner"></div>
+                </div>
+
+                <!-- carousel controls -->
+                <a class="carousel-control-prev" href="#calendarCarousel" role="button" data-slide="prev">
+                    <i class="carousel-control-icon fa-2x"><</i>
+                </a>
+                <a class="carousel-control-next" href="#calendarCarousel" role="button" data-slide="next">
+                    <i class="carousel-control-icon fa-2x">></i>
+                </a>
+            </div>
+
+            <!-- statistic -->
+            <div class="list-group-item">
+                <p>Statistic</p>
+                <div id="completedNo" class="stat-no-container">
+                    <div class="stat-no-box btn bg-success"></div>
+                    <p></p>
+                </div>
+                <div id="warningNo" class="stat-no-container">
+                        <div class="stat-no-box btn bg-warning"></div>
+                        <p></p>
+                </div>
+                <div id="failedNo" class="stat-no-container">
+                        <div class="stat-no-box btn bg-danger"></div>
+                        <p></p>
+                </div>
+                <div id="emptyNo" class="stat-no-container">
+                        <div class="stat-no-box btn bg-secondary"></div>
+                        <p></p>
+                </div>
+            </div>
+
+            <!-- delete btn -->
+            <button id="deleteTaskBtn" class="list-group-item bg-danger text-light" data-toggle="collapse" data-target="#deleteTaskConfirmation" aria-expanded="false" aria-controls="deleteTaskConfirmation">
+                Delete Task
+            </button>
+        </div>
+
+        <!-- delete task confirmation -->
+        <div id="deleteTaskConfirmation" class="collapse">
+            <div class="card text-center">
+                <p id='deleteTaskConfirmationText'>Are you sure you want to delete your task? No information can be retrieved after deletion</p>
+                <div id='deleteCancelBtns' class="btn-group card-body mx-auto">
+                    <button id="deleteTaskConfirmed" class="btn btn-danger" onclick="deleteTask(task.taskId)" >DELETE</button>
+                    <button class="btn btn-light" data-toggle='collapse' data-target='#deleteTaskConfirmation'>CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Habit Steak - User Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="/userProfile.css" />
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="/userProfile.js"></script>
+</head>
+<body>
+        <div id="container">
+            <%- include('./components/navbar', {data: data}) %>
+            <div class="card" style="width: 300px;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Username: <p class="userInfo"><%= data.username %></p></li>
+                    <li class="list-group-item">User ID: <p class="userInfo"><%= data.userID %></p></li>
+                    <li class="list-group-item">Email: <p class="userInfo"><%= data.email %></p></li>
+                    <li class="list-group-item">Number of Tasks: <p class="userInfo"><%= data.taskNo - data.taskDelNo %></p></li>
+                </ul>
+            </div>
+            <button id="deleteBtn" class="btn btn-danger" data-toggle='collapse' data-target='#deleteConfirmation' aria-expanded="false" aria-controls="deleteConfirmation">DELETE ACCOUNT</button>
+            <div id="deleteConfirmation" class="collapse">
+                <div class="card text-center">
+                    <p class='card-body'>Are you sure you want to delete your account? No information can be retrieved after deletion</p>
+                    <div id='deleteCancelBtns' class="btn-group card-body">
+                        <button id="deleteConfirmed" class="btn btn-danger" data-userId=<%= data.id %>>DELETE</button>
+                        <button class="btn btn-light" data-toggle='collapse' data-target='#deleteConfirmation' aria-expanded="false" aria-controls="deleteConfirmation">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

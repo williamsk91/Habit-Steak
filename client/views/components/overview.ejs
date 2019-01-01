@@ -1,0 +1,67 @@
+<head>
+        <style>
+            #overview{
+                width: 300px;
+                height: 35px;
+            }
+
+        </style>    
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(()=>{
+                //get the corresping percentages of success-warning-fail tasks for today
+                //loop through task
+                let today = new Date().getDate();
+                let completedCnt = 0, warningCnt = 0, failedCnt = 0, emptyCnt = 0;
+                for(let i=0; i<data.tasks.length; i++){
+
+                    let completedA = data.tasks[i].history[data.tasks[i].history.length - 1].completed; //get the latest month completed array
+                    let value = completedA[today-1]; //get today's result
+                    
+                    switch(value){
+                        case 1: 
+                            completedCnt++;
+                            break;
+                        case 0:
+                            emptyCnt++;
+                            break;
+                        case -1:
+                            let confirmedA = data.tasks[i].history[data.tasks[i].history.length - 1].confirmed; //get the latest month confirmed array
+                            confirmedA[today-1] ? failedCnt++ : warningCnt++;
+                        break;
+                        default:
+                            console.log('overview.ejs script -> no value mathed on creating progress bar error');
+                    }
+
+                }
+
+                //get the percentages and assign them to the respective progess bar
+                let totalTask = data.taskNo - data.taskDelNo;
+                if(totalTask == 0){
+                    //if not task -> shows empty
+                    $('#empty').css('width', '100%');
+                } else {
+                    $('#completed').css('width', (completedCnt/totalTask*100) + '%');
+                    $('#warning').css('width', (warningCnt/totalTask*100) + '%');
+                    $('#failed').css('width', (failedCnt/totalTask*100) + '%');
+                    $('#empty').css('width', (emptyCnt/totalTask*100) + '%');
+                }
+                  
+            })
+        </script>
+        <!-- <script src="overview.js"></script> -->
+    </head>
+    <body>
+        <div id="overview" class="badge badge-light border">
+            <div class="progress" style="height: 27px;">
+                <div id="completed" class="progress-bar progress-bar-striped bg-success" role="progressbar"></div>
+                <div id="warning" class="progress-bar progress-bar-striped bg-warning" role="progressbar"></div>
+                <div id="failed" class="progress-bar progress-bar-striped bg-danger" role="progressbar"></div>
+                <div id="empty" class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 20%"></div>
+            </div> 
+        </div>
+    </body>

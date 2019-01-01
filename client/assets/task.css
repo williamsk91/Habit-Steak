@@ -1,0 +1,59 @@
+#taskContainer{
+    width: 300px;
+    margin: 100px auto;
+}
+
+/* title */
+#taskTitle h3{
+    width: 250px;
+}
+
+
+#taskTitle a{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+
+/* calendar */
+#calendarCarousel{
+    width: 220px;
+    margin: auto;
+}
+
+.carousel-control-icon{
+    color: grey;
+}
+
+/* statistic */
+.stat-no-container p{
+    display: inline;
+}
+
+.stat-no-box{
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px 0px 0px;
+}
+
+/* calendar */
+.calendarGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    grid-template-rows: repeat(5, 30px);
+    grid-gap: 1px 1px;
+} 
+
+.startSign{
+    position: relative;
+    bottom: 4px;
+    right: 5px;
+}
+
+/* task deletion */
+#deleteTaskConfirmationText{
+    margin-bottom: 0px;
+    padding-bottom: 0px;  
+
+}
