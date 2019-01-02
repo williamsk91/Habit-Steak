@@ -1,6 +1,8 @@
 # Habit-Steak
 A minimalist habit tracker web app. Uses 'Stake', money wagered, to push users into sticking to their set habit.
 
+Glitch URL https://habit-steak.glitch.me/
+
 ### Current State
 Habit Stake is still in its early stages so expect many improvements and more functions in the future.
 
