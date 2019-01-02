@@ -45,6 +45,7 @@ app.get('/*', (req, res)=>{
     res.render('error');
 })
 
-
-app.listen(3000);
-console.log('node is listening at port 3000');
+//listening to provided port like glitch or local port 3000
+var listener = app.listen(process.env.PORT || 3000, function () {
+    console.log('Your app is listening on port ' + listener.address().port);
+});
