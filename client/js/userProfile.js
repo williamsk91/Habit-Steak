@@ -6,8 +6,8 @@ $(document).ready(()=>{
         $.ajax({
             type: 'DELETE',
             url: '/userProfile/' + userId,
-            success: function(data) {
-                window.location.href = "http://localhost:3000/auth/login";
+            success: function() {
+                window.location.assign('/')
             }
         });
     });

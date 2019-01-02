@@ -37,7 +37,9 @@ module.exports = (app)=>{
 
         UserProfile.findOneAndUpdate(conditionEmail, update, (err, data)=>{
             if(err) throw err;
-            res.render('main', {data: req.user});
+            //send empty data
+            res.json({});     
+       
         })
     });
 

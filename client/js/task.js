@@ -88,8 +88,7 @@ let deleteTask = (taskId)=>{
         type: 'DELETE',
         url: '/task/delete/' + taskId,
         success: function(){
-            //do something with the data via front-end framework
-            location.href = "http://localhost:3000/main";
+            window.location.assign('/main')
         }
     })
 }

@@ -5,9 +5,8 @@ $(document).ready(()=>{
         $.ajax({
             type: 'POST',
             url: '/main/updateMonth',
-            success: function(data){
-            //do something with the data via front-end framework
-            window.location.href = "http://localhost:3000/main";
+            success: function(){
+                window.location.assign('/main')
             }
         })
     }

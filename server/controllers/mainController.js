@@ -127,7 +127,7 @@ module.exports = (app)=>{
 
         UserProfile.findOneAndUpdate(conditionEmail, update, (err, data)=>{
             if(err) throw err;
-            res.redirect('main');       
+            res.redirect('/main');       
         })
     });
 
