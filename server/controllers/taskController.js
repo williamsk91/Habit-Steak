@@ -37,7 +37,7 @@ module.exports = (app)=>{
 
         UserProfile.findOneAndUpdate(conditionEmail, update, (err, data)=>{
             if(err) throw err;
-            //send empty data
+            console.log('task deleted')
             res.json({});     
        
         })

@@ -127,6 +127,7 @@ module.exports = (app)=>{
 
         UserProfile.findOneAndUpdate(conditionEmail, update, (err, data)=>{
             if(err) throw err;
+            console.log('task added');
             res.redirect('/main');       
         })
     });
