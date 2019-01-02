@@ -12,6 +12,20 @@
     justify-content: center;
 }
 
+/* username */
+#changeUsernameBtn{
+    background: transparent;
+    border: 0px solid transparent;
+}
+
+#usernameEditCompleteBtn{
+    margin-left: 10px;
+    background: transparent;
+    border: 0px solid transparent;
+}
+
+
+
 .userInfo{
     display: inline;
     font-weight: bold;

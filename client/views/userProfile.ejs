@@ -19,7 +19,10 @@
             <%- include('./components/navbar', {data: data}) %>
             <div class="card" style="width: 300px;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Username: <p class="userInfo"><%= data.username %></p></li>
+                    <li id="usernameContainer" class="list-group-item">
+                        <span id="usernameLabel">Username: </span>
+                        <p id="usernameText" class="userInfo"><%= data.username %></p> 
+                        <button id="changeUsernameBtn" class='fa fa-edit' onclick="changeUsername()"></button></li>
                     <li class="list-group-item">User ID: <p class="userInfo"><%= data.userID %></p></li>
                     <li class="list-group-item">Email: <p class="userInfo"><%= data.email %></p></li>
                     <li class="list-group-item">Number of Tasks: <p class="userInfo"><%= data.taskNo - data.taskDelNo %></p></li>

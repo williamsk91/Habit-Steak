@@ -1,6 +1,10 @@
 let mongoose = require('mongoose');
 let UserProfile = require('../model/userModel.js');
 let keys = require('../config/keys');
+let bodyParser = require('body-parser');
+
+//body parser
+let urlencodedParser = bodyParser.urlencoded({extended: false});
 
 //connect to mLab database
 mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true });
@@ -21,6 +25,21 @@ module.exports = (app) =>{
     app.get('/userProfile', authCheck, (req, res)=>{
         res.render('userProfile', {data: req.user});
     });
+
+    //change username
+    app.post('/changeUsername', urlencodedParser, (req, res)=>{
+        //find user's document by email address
+        let conditionEmail = {email: req.user.email};
+
+        //push task
+        //then increment no of task count by 1
+        let update = {username: req.body.username};
+
+        UserProfile.findOneAndUpdate(conditionEmail, update, (err, data)=>{
+            if(err) throw err;
+            res.redirect('/userProfile');      
+        })
+    })
 
     //delete account
     app.delete('/userProfile/:id', (req, res)=>{
