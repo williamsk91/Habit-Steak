@@ -53,22 +53,22 @@ $(document).ready(()=>{
     //adding month's name to the calendar
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     
-    //lopping through each task and appending the necessary elements
+    //lopping through each task 
     for(let i=0; i<data.tasks.length; i++){
         
         //getting the necessary data
         let taskId = data.tasks[i].taskId;
-        let lastIndex = data.tasks[i].history.length -1;
+        let lastIndex = data.tasks[i].history.length - 1;
         let monthNo = data.tasks[i].history[lastIndex].month;
         let yearNo = data.tasks[i].history[lastIndex].year;
         let completedArr = data.tasks[i].history[lastIndex].completed;
         let confirmedArr = data.tasks[i].history[lastIndex].confirmed;
 
         //*----------------- Confirmation Cards -------------------*//
-        //if not the only month -> start from 0 to today
+        //if not the only month -> start from 0  to today
         //if it's the only month -> start from start date to today
-        let startDate = (data.tasks[i].history.length > 1) ? 0 : data.tasks[i].startDate.date;
-        for(let j=startDate-1; j<new Date().getDate(); j++){
+        let startDate = (data.tasks[i].history.length > 1) ? 0 : data.tasks[i].startDate.date - 1;
+        for(let j=startDate; j<new Date().getDate(); j++){
             if( completedArr[j] <= 0 ){
                 //if the failure is already confirmed then skip
                 if(confirmedArr[j]) continue;
@@ -79,6 +79,7 @@ $(document).ready(()=>{
                 //if failed then set up a confirmation card
                 //text
                 let date = (monthNo+1)+ '/' + (j+1); // '2/28'
+                console.log(monthNo);
                 let taskName = data.tasks[i].title; 
                 let stake = data.tasks[i].stake;
                 //if it's empty set text to 'not confirmed on' else 'failed on'
