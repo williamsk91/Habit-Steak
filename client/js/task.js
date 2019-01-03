@@ -84,6 +84,9 @@ $(document).ready(()=>{
 //deleting task
 let deleteTask = (taskId)=>{
     console.log(taskId);
+    //unbind to ensure button is only clicked once
+    $('#deleteTaskConfirmed'+taskId).removeAttr('onclick');
+
     $.ajax({
         type: 'DELETE',
         url: '/task/delete/' + taskId,

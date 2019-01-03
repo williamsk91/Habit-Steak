@@ -88,7 +88,7 @@
             <div class="card text-center">
                 <p id='deleteTaskConfirmationText'>Are you sure you want to delete your task? No information can be retrieved after deletion</p>
                 <div id='deleteCancelBtns' class="btn-group card-body mx-auto">
-                    <button id="deleteTaskConfirmed" class="btn btn-danger" onclick="deleteTask(<%= task.taskId %>)" >DELETE</button>
+                    <button id=<%= "deleteTaskConfirmed" + task.taskId %> class="btn btn-danger" onclick="deleteTask(<%= task.taskId %>)" >DELETE</button>
                     <button class="btn btn-light" data-toggle='collapse' data-target='#deleteTaskConfirmation'>CANCEL</button>
                 </div>
             </div>
